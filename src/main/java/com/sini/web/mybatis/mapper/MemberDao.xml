@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sini.web.dao.MemberDao">
+	<insert id="add" parameterType="com.sini.web.entity.Member">
+
+		INSERT INTO sini.Member
+		(`memberId`,
+		`email`,
+		`name`,
+		`password`
+		)
+		VALUES
+		(
+		#{memberId},
+		#{email},
+		#{name},
+		#{password})
+	</insert>
+	
+	<select id="getMemberById" resultType="com.sini.web.entity.Member" >
+		SELECT * FROM Member WHERE memberId=#{memberId}
+	</select>
+	
+	<select id="getMemberByEmail" resultType="com.sini.web.entity.Member" >
+		SELECT * FROM Member WHERE email=#{email}
+	</select>
+	
+	<select id="getMemberByName" resultType="com.sini.web.entity.Member" >
+		SELECT * FROM Member WHERE name=#{name}
+	</select>
+	
+	<select id="getList" resultType="com.sini.web.entity.Member" >
+		SELECT * FROM Member;
+	</select>
+	
+</mapper>
